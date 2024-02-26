@@ -5,11 +5,13 @@ import {useDispatch} from 'react-redux';
 import {updateUser} from '../../utils/api';
 import {deleteUserAction, updateUserAction} from '../../redux/actions/userActions';
 
+// 사용자 정보를 표시하는 컴포넌트
 function UserListItem({user, style}) {
-    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(false); // 사용자 정보 수정 모달 표시 상태
     const [form] = Form.useForm();
     const dispatch = useDispatch();
 
+    // 사용자 정보 수정 모달 표시
     const showModal = () => {
         form.setFieldsValue({
             name: user.name,
@@ -18,10 +20,11 @@ function UserListItem({user, style}) {
         setIsModalVisible(true);
     };
 
+    // 사용자 정보 수정 클릭
     const handleOk = async () => {
         try {
             const values = await form.validateFields();
-            await updateUser(user.id, values);
+            await updateUser(user.id, values); // 사용자 정보 수정 API 호출
             dispatch(updateUserAction(user.id, values));
             setIsModalVisible(false);
         } catch (errorInfo) {
@@ -29,12 +32,13 @@ function UserListItem({user, style}) {
         }
     };
 
+    // 사용자 정보 수정 모달 닫기
     const handleCancel = () => {
         setIsModalVisible(false);
     };
 
+    // 사용자 삭제 클릭
     const handleDelete = () => {
-        // 사용자 삭제 확인 모달 표시
         Modal.confirm({
             title: '사용자 삭제',
             content: `${user.name} 사용자를 정말 삭제하시겠습니까?`,
@@ -43,6 +47,8 @@ function UserListItem({user, style}) {
             },
         });
     };
+
+    // 사용자 정보를 표시하는 UI 렌더링
     return (
         <div style={style}>
             <Card style={{margin: '5px'}}>

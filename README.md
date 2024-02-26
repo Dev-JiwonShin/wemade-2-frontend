@@ -1,70 +1,49 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 프로젝트 실행 방법
 
-## Available Scripts
+이 프로젝트는 프론트엔드와 백엔드 코드로 구성되어 있으며, 두 부분 모두 실행해야 합니다. 다음 지침은 프론트엔드 코드를 실행하는 방법입니다. 
 
-In the project directory, you can run:
+## 프론트엔드 실행하기
 
-### `npm start`
+1. 프로젝트의 프론트엔드 디렉토리로 이동합니다.
+2. 필요한 npm 패키지를 설치하기 위해 터미널에 다음 명령어를 입력합니다:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```npm install```
+   
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. 패키지 설치가 완료되면, 애플리케이션을 시작하기 위해 다음 명령어를 실행합니다:
 
-### `npm test`
+```npm start```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+이 명령어는 개발 모드에서 프론트엔드 서버를 시작합니다. 브라우저에서 [http://localhost:3000](http://localhost:3000)으로 접속하면 애플리케이션을 볼 수 있습니다.
 
-### `npm run build`
+## 백엔드 실행하기
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+백엔드 코드를 실행하는 방법에 대한 지침은 백엔드 코드의 README 파일을 참조하세요.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# How to Run the Project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This project consists of both frontend and backend code, and both parts need to be run. The following instructions are for running the frontend code.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Running the Frontend
 
-## Learn More
+1. Navigate to the frontend directory of the project.
+2. To install the necessary npm packages, enter the following command in the terminal:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```npm install```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Once the package installation is complete, run the following command to start the application:
 
-### Code Splitting
+```npm start```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This command starts the frontend server in development mode. You can view the application by accessing [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Analyzing the Bundle Size
+## Running the Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Refer to the README file in the backend code for instructions on how to run the backend code.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+These README instructions provide a clear guide for setting up and starting both the frontend and backend parts of your project.

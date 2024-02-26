@@ -12,7 +12,7 @@ export const fetchMoreUsers = async (currentUsersCount, sortOrder = 'asc') => {
     return await response.json();
 };
 
-export const createUser = async (user) => {
+export const addUser = async (user) => {
     const response = await fetch(API_BASE_URL, {
         method: 'POST',
         headers: {
@@ -21,7 +21,7 @@ export const createUser = async (user) => {
         body: JSON.stringify(user),
     });
     if (!response.ok) {
-        throw new Error('Error creating user');
+        throw new Error('Error adding user');
     }
     return await response.json();
 };
