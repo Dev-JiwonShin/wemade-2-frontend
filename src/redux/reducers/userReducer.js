@@ -4,7 +4,7 @@ import {
     DELETE_USER_FAILURE, DELETE_USER_REQUEST, DELETE_USER_SUCCESS,
     FETCH_MORE_USERS_FAILURE,
     FETCH_MORE_USERS_REQUEST,
-    FETCH_MORE_USERS_SUCCESS,
+    FETCH_MORE_USERS_SUCCESS, FETCH_USER_SUCCESS,
     FETCH_USERS_FAILURE,
     FETCH_USERS_REQUEST,
     FETCH_USERS_SUCCESS, RESET_USERS, UPDATE_USER_SUCCESS
@@ -19,6 +19,14 @@ const initialState = {
 export default function userReducer(state = initialState, action) {
     switch (action.type) {
 
+        case FETCH_USER_SUCCESS:
+            // 새로운 사용자 정보를 기존 목록에 추가
+            const newUser = action.payload;
+            return {
+                ...state,
+                users: [...state.users, newUser],
+                loading: false
+            };
         case RESET_USERS:
             return {
                 ...state,

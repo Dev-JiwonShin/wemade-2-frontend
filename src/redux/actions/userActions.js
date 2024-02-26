@@ -1,5 +1,46 @@
 // src/redux/actions/userActions.js
-import {fetchUsers,fetchMoreUsers, createUser, updateUser, deleteUser, API_BASE_URL} from '../../utils/api';
+import {
+    fetchUsers,
+    fetchMoreUsers,
+    createUser,
+    updateUser,
+    deleteUser,
+    API_BASE_URL,
+    fetchUserById
+} from '../../utils/api';
+
+export const FETCH_USER_REQUEST = 'FETCH_USER_REQUEST';
+export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
+export const FETCH_USER_FAILURE = 'FETCH_USER_FAILURE';
+export const addUserAction = (user) => async (dispatch) => {
+    dispatch({ type: ADD_USER_REQUEST });
+    try {
+        const response = await createUser(user);
+        dispatch({ type: ADD_USER_SUCCESS, payload: response.user });
+        // 새로 추가된 사용자의 정보를 가져옴
+        dispatch(fetchUserByIdAction(response.user.id));
+    } catch (error) {
+        dispatch({ type: ADD_USER_FAILURE, payload: error.message });
+    }
+};
+
+
+export const fetchUserByIdAction = (userId) => async (dispatch) => {
+    dispatch({ type: FETCH_USER_REQUEST });
+    try {
+        const user = await fetchUserById(userId); // API 호출
+        dispatch({
+            type: FETCH_USER_SUCCESS,
+            payload: user
+        });
+    } catch (error) {
+        console.error('Error fetching user:', error);
+        dispatch({
+            type: FETCH_USER_FAILURE,
+            payload: error.message
+        });
+    }
+};
 
 export const RESET_USERS = 'RESET_USERS';
 
@@ -96,21 +137,20 @@ export const fetchUsersAction = () => async (dispatch) => {
     }
 };
 
-
 export const ADD_USER_REQUEST = 'ADD_USER_REQUEST';
 export const ADD_USER_SUCCESS = 'ADD_USER_SUCCESS';
 export const ADD_USER_FAILURE = 'ADD_USER_FAILURE';
-
-export const addUserAction = (user) => async (dispatch) => {
-    dispatch({type: ADD_USER_REQUEST});
-    try {
-        const response = await createUser(user); // `createUser`는 `api.js`에서 정의된 함수입니다.
-        dispatch({type: ADD_USER_SUCCESS, payload: response.user});
-        // dispatch(fetchUsersAction()); // 사용자 추가 후 전체 사용자 목록을 다시 불러옵니다.
-    } catch (error) {
-        dispatch({type: ADD_USER_FAILURE, payload: error.message});
-    }
-};
-
+//
+// export const addUserAction = (user) => async (dispatch) => {
+//     dispatch({type: ADD_USER_REQUEST});
+//     try {
+//         const response = await createUser(user); // `createUser`는 `api.js`에서 정의된 함수입니다.
+//         dispatch({type: ADD_USER_SUCCESS, payload: response.user});
+//         // dispatch(fetchUsersAction()); // 사용자 추가 후 전체 사용자 목록을 다시 불러옵니다.
+//     } catch (error) {
+//         dispatch({type: ADD_USER_FAILURE, payload: error.message});
+//     }
+// };
+//
 
 
