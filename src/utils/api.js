@@ -1,23 +1,5 @@
 // src/utils/api.js
-
 export const API_BASE_URL = 'http://localhost:2000/users';
-
-// API 함수 추가
-export const fetchUserById = async (userId) => {
-    const response = await fetch(`${API_BASE_URL}/${userId}`);
-    if (!response.ok) {
-        throw new Error('Error fetching user');
-    }
-    return await response.json();
-};
-
-export const fetchUsers = async () => {
-    const response = await fetch(API_BASE_URL);
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-    return await response.json();
-};
 
 export const fetchMoreUsers = async (currentUsersCount, sortOrder = 'asc') => {
     const limit = 10;
@@ -29,7 +11,6 @@ export const fetchMoreUsers = async (currentUsersCount, sortOrder = 'asc') => {
     }
     return await response.json();
 };
-
 
 export const createUser = async (user) => {
     const response = await fetch(API_BASE_URL, {
@@ -68,3 +49,4 @@ export const deleteUser = async (id) => {
     }
     return await response.json();
 };
+
